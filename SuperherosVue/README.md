@@ -21,3 +21,8 @@ This project requires fallowing node/npm packages:
 
 and can be installed via command:
   npmm install --save express body-parser mongoose
+
+
+  `If you are having touble commitign you need to commit projects not just SuperHeros Vue`
+
+  
