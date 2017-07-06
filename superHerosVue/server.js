@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var Superhero = require('./models/Superhero');
 var mongoose = require('mongoose');
 var app = express();
-var port = 3000;
+var port = 3001;
 
 
 mongoose.connect('mongodb://localhost/superheroes');
@@ -29,13 +29,15 @@ app.get("/api/:_id", function(req,res){
   });
 });
 
-app.post('/', function(req, res) {
+app.post('/api', function(req, res) {
+  console.log("Hitting post route");
   var superhero = new Superhero();
   superhero.name = req.body.name;
   superhero.superpower = req.body.superpower;
+  superhero.img = req.body.img;
 
   superhero.save().then(function(superhero) {
-    res.send(superhero);
+    res.json({message:"hero successfully created", data: superhero});
   }, function(err) {
     res.send(err)
   })

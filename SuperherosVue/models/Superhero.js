@@ -4,6 +4,7 @@ var SuperheroSchema = new mongoose.Schema({
 
 name: String,
 superpower: String,
+img: String
 
 
 });

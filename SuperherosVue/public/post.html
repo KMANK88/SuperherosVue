@@ -18,24 +18,30 @@
     <![endif]-->
   </head>
   <body>
-    <div id="app" >
+    <div id="app">
       <div class="container jumbotron">
-        <h1>{{ title }}</h1>
+        <h1>{{ postTitle }}</h1>
+
       </div>
-        <div class="container">
-            <div class="row" v-for="h in heroes">
-              <div class="col-md-4">
-                {{ h.name }}
-              </div>
-              <div class="col-md-4">
-                {{ h.superpower }}
-                  <div class="col-md-4">
-                    <img :src="h.img"/>
-                  </div>
-                  </div>
-            </div>
+      <form v-on:submit.prevent="postHero">
+        <div class="col-md-12">
+          <label>Superhero</label>
+          <input type="text" v-model="name"/>
         </div>
+        <div class="col-md-12">
+          <label>Superhero Power</label>
+            <input type="text" v-model="superpower"/>
+        </div>
+        <div class="col-md-12">
+          <label>Superhero Picture</label>
+          <input type="text" v-model="img"/>
+        </div>
+        <div class="col-md-12">
+            <button type='submit' class='btn btn-success'>Submit Superhero</button>
+        </div>
+      </form>
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
