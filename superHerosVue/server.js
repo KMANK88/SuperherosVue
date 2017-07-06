@@ -21,8 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/:_id", function(req,res){
-  Superhero.findById(req.params._id,)
-})
+  Superhero.findById(req.params._id,function(err,superhero){
+    if(err) throw err;
+    res.json({data: superhero,message: "Hero recieved good"});
+  });
+});
 
 app.post('/', function(req, res) {
   var superhero = new Superhero();
