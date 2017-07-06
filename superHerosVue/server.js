@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + "/public"));
 
- app.get('/', function(req, res) {
+ app.get('/api', function(req, res) {
   Superhero.find(function(err, superheroes) {
     if (err) throw err;
     res.json({ data : superheroes, message : "Heroes successfully retrieved!" })
@@ -22,7 +22,7 @@ app.use(express.static(__dirname + "/public"));
 });
 
 
-app.get("/:_id", function(req,res){
+app.get("/api/:_id", function(req,res){
   Superhero.findById(req.params._id,function(err,superhero){
     if(err) throw err;
     res.json({data: superhero,message: "Hero recieved good"});
